@@ -1,16 +1,7 @@
 from approvaltests import verify
 
+from grid import Grid
 from printers import print_board
-
-
-class Grid:
-    def __init__(self, width, height):
-        self.height = height
-        self.width = width
-        self.content = {}
-
-    def content_at(self, x, y):
-        return self.content.get((x, y), " ")
 
 
 def test_print_empty_board():
@@ -31,4 +22,10 @@ def test_print_larger_grid():
     board.content[(0, 0)] = "x"
     board.content[(2, 0)] = "o"
     board.content[(8, 10)] = "x"
+    verify(print_board(board))
+
+
+def test_print_comment():
+    board = Grid(width=3, height=3)
+    board.comment = "this is a comment"
     verify(print_board(board))
