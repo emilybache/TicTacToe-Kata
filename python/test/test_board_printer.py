@@ -1,12 +1,12 @@
 from approvaltests import verify
 
 from grid import Grid
-from printers import print_board
+from grid_printer import print_grid
 
 
 def test_print_empty_board():
     board = Grid(width=3, height=3)
-    verify(print_board(board))
+    verify(print_grid(board))
 
 
 def test_print_tic_tac_toe():
@@ -14,7 +14,7 @@ def test_print_tic_tac_toe():
     board.content[(0, 0)] = "x"
     board.content[(2, 0)] = "o"
     board.content[(2, 2)] = "x"
-    verify(print_board(board))
+    verify(print_grid(board))
 
 
 def test_print_larger_grid():
@@ -22,10 +22,10 @@ def test_print_larger_grid():
     board.content[(0, 0)] = "x"
     board.content[(2, 0)] = "o"
     board.content[(8, 10)] = "x"
-    verify(print_board(board))
+    verify(print_grid(board))
 
 
 def test_print_comment():
     board = Grid(width=3, height=3)
     board.comment = "this is a comment"
-    verify(print_board(board))
+    verify(print_grid(board))

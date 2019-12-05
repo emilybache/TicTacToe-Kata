@@ -1,13 +1,18 @@
 from grid import Grid
-from printers import calculate_field_width
+from grid_printer import calculate_field_width
 
 
-def read_grid(position):
-    grid = create_grid(position)
+def read_grid(printed_grid):
+    """
+    If you have printed a grid using 'print_grid', you can parse it into a Grid object using this function
+    :param printed_grid:
+    :return: a Grid object initialized with the contents of the printed grid
+    """
+    grid = _create_grid_with_dimensions(printed_grid)
     field_width = calculate_field_width(grid) + 1 # account for 1 padding in each field
 
     header_row = True
-    for j, line in enumerate(position.splitlines()):
+    for j, line in enumerate(printed_grid.splitlines()):
         if header_row:
             header_row = False
             continue
@@ -25,7 +30,7 @@ def read_grid(position):
     return grid
 
 
-def create_grid(position):
+def _create_grid_with_dimensions(position):
     contents = []
     for line in position.splitlines():
         line = line.replace(".", "")

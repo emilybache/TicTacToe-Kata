@@ -1,7 +1,7 @@
 from approvaltests import verify
 
 from grid_reader import read_grid
-from printers import print_board
+from grid_printer import print_grid
 
 
 def test_read_empty_board():
@@ -24,7 +24,7 @@ def test_read_pieces():
 2 x    .
 """
     grid = read_grid(position)
-    verify(print_board(grid))
+    verify(print_grid(grid))
 
 
 def test_read_larger_grid():
@@ -46,4 +46,4 @@ def test_read_larger_grid():
 13                                    .
 """
     grid = read_grid(position)
-    verify(print_board(grid))
+    verify(print_grid(grid))
