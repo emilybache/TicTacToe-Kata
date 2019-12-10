@@ -1,3 +1,4 @@
+import pytest
 from approvaltests import verify
 
 from grid_reader import read_grid
@@ -47,3 +48,5 @@ def test_read_larger_grid():
 """
     grid = read_grid(position)
     verify(print_grid(grid))
+
+

@@ -25,7 +25,7 @@ def read_grid(printed_grid):
                 continue
             piece = field.strip()
             if piece:
-                grid.content[(i-1, j-1)] = piece
+                grid.update_content_at(i-1, j-1, piece)
 
     return grid
 

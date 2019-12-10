@@ -7,11 +7,10 @@ def print_grid(grid):
     * attribute 'width'
     * attribute 'height'.
     * 'content_at(x, y)' which returns the single character to be printed at that location with co-ordinates (x, y).
-    * attribute 'comment' (which may be empty). This is printed below the grid.
     """
     field_width = calculate_field_width(grid)
-    x_coords = [_fixed_width(" ", field_width)] + [_fixed_width(i, field_width) for i in range(grid.width)]
-    all_content = [x_coords]
+    header_row = [_fixed_width(" ", field_width)] + [_fixed_width(i, field_width) for i in range(grid.width)]
+    all_content = [header_row]
     for j in range(grid.height):
         y_coords = [_fixed_width(j, field_width)]
         row_contents = y_coords + [_fixed_width(grid.content_at(i, j), field_width) for i in range(grid.width)]
@@ -20,7 +19,7 @@ def print_grid(grid):
     all_rows = [" ".join(row) for row in all_content]
     all_rows.append("")
     grid_string = '.\n'.join(all_rows)
-    return grid_string + grid.comment
+    return grid_string
 
 
 def calculate_field_width(grid):

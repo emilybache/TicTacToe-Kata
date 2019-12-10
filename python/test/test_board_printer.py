@@ -23,9 +23,3 @@ def test_print_larger_grid():
     board.content[(2, 0)] = "o"
     board.content[(8, 10)] = "x"
     verify(print_grid(board))
-
-
-def test_print_comment():
-    board = Grid(width=3, height=3)
-    board.comment = "this is a comment"
-    verify(print_grid(board))
